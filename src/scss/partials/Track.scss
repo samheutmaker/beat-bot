@@ -1,0 +1,37 @@
+.Track {
+    position: relative;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+
+    .Beat {
+    	position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        background-color: grey;
+        border: 1px solid black;
+        transition: all 0.1s;
+
+        &:hover {
+        	cursor: pointer;
+        }
+
+        &:active {
+        	top: 1px;
+        }
+    }
+	
+	.Active {
+		background-color: lightyellow;
+	}
+
+    .On {
+        background-color: $blue;
+    }
+
+    .Off {}
+}

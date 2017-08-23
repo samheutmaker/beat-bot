@@ -1,0 +1,25 @@
+// Global Colors
+@import "global/colors.scss";
+
+
+//Pages
+@import "pages/BeatBot";
+
+// Partials
+@import "partials/Track";
+@import "partials/Loop";
+@import "partials/ErrorMsg";
+@import "partials/Loader";
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'monospace', sans-serif;
+    background-color: $bg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
