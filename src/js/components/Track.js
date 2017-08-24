@@ -18,7 +18,8 @@ class Track extends Component {
   render() {
     return (
 	     <div className="Track">
-	       
+	       {this.props.track.sequence
+          .map((beat, index) => this.renderSingleBeat(beat, index))}
 	     </div>
     );
   }
@@ -26,9 +27,13 @@ class Track extends Component {
 
 Track.propTypes = {
   track: PropTypes.shape({
-    name: PropTypes.string,
-    sampleUri: PropTypes.string.isRequired,
-    key: PropTypes.number.isRequired,
+    sound: PropTypes.object
+    sequence: PropTypes.array,
+    volume: PropTypes.array,
+    muted: PropTypes.array,
+    name: PropTypes.String
+    beatsPerMinute: PropTypes.number
+    beatsPerMeasure: PropTypes.number
   }),
   currentBeat: PropTypes.number.isRequired,
   isMobile: PropTypes.bool.isRequired,
