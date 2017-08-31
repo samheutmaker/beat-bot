@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import NPECheck from './lib/util/NPECheck'
 import ActionBinder from './lib/util/ActionBinder'
-import * as DrumMachineActions from './lib/DrumMachineActions'
+import * as Actions from './actions/ACtions'
 
 /* The top-level application component
  * @extends Component
@@ -14,15 +14,13 @@ export default class App extends Component {
     super(props);
     this.state = {
       isMobile: false,
-      drumMachine: {
-        ...DrumMachineActions.drumMachineState()
-      }
+      ...Actions.getState()
     };
   }
   getChildContext(){
     return {
       actions: ActionBinder([
-          DrumMachineActions
+          Actions
         ], this)
     }
   }

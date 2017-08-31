@@ -17,4 +17,4 @@ class Track {
   }
 }
 
-export default ViewFactory(Track);
+
