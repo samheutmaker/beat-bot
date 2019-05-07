@@ -39,10 +39,13 @@ class Loop extends Component {
       </div>
     );
   }
-  renderTracks(tracks){
+  renderTracks(loop){
     return (
       <div className="Tracks">
-        {tracks.map((track, idx) => <Track key={idx} {...this.props} trackIdx={idx}/>)}
+        {loop.tracks.map((track, idx) => <Track key={idx}
+                                           trackIdx={idx} 
+                                           currentBeat={loop.currentBeat}
+                                           {...this.props} /> )}
       </div>
     );
   }
@@ -52,7 +55,7 @@ class Loop extends Component {
     return (
 	     <div className="Loop">
          {this.renderLoopHeader(loop)}
-         {this.renderTracks(loop.tracks)}
+         {this.renderTracks(loop)}
 	     </div>
     );
   }

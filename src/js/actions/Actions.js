@@ -23,12 +23,11 @@ export function addLoop() {
 export function loopState() {
   return {
     tracks: [],
-    isPlaying: false,
+    isPlaying: true,
     currentBeat: 0,
-    beatsPerMinute: 80,
+    beatsPerMinute: 300,
     beatsPerMeasure: 4,
     playInterval: null,
-
   }
 }
 
@@ -38,9 +37,27 @@ export function addTrack(loopIdx) {
 }
 
 export function togglePlayLoop(loopIdx, isPlaying) {
+  let playInterval = null;
+  
+  let loop = this.state.loops[loopIdx];
+
+  if(isPlaying) {
+    playInterval = setInterval(() => {
+      let loop = this.state.loops[loopIdx];
+      // console.log(loop.currentBeat);
+      return Reducers.updateLoop.call(this, loopIdx, {
+        isPlaying,
+        currentBeat: (loop.currentBeat + 1) === 16 ? 0 : (loop.currentBeat + 1),
+      })
+    }, 60000 / loop.beatsPerMinute);
+  } else {
+    clearInterval(loop.playInterval);
+  }
+
   return Reducers.updateLoop.call(this, loopIdx, {
-    isPlaying
-  })
+    isPlaying,
+    playInterval,
+  });
 }
 
 function trackState(sound = null) {
@@ -70,7 +87,6 @@ export function toggleTrackSequence(loopIdx, trackIdx, seqIdx) {
 }
 
 export function toggleTrackMuted(loopIdx, trackIdx, muted) {
-  console.log(muted);
   return Reducers.updateTrack.call(this, loopIdx, trackIdx, {
     muted
   });

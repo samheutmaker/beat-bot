@@ -10,7 +10,7 @@ class BeatBot extends Component {
     this.state = {};
   }
   componentDidMount() {
-    // this.context.actions.addLoop().then(() => console.log(this.props));
+    this.context.actions.addLoop().then(() => console.log(this.props));
     this.context.actions.loadKit();
   }
   renderLoops(){

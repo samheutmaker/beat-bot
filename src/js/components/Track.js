@@ -9,6 +9,9 @@ class Track extends Component {
     super(props);
     this.state = {};
   }
+  componentDidUpdate() {
+
+  }
   toggleSequence(idx){
     this.context.actions.toggleTrackSequence(
       this.props.loopIdx,
@@ -39,6 +42,15 @@ class Track extends Component {
     );
   }
   renderSingleBeat(beat, idx){
+    // console.log(this.props.currentBeat);
+    // console.log(beat, idx);
+    
+    if(this.props.currentBeat == idx && beat) {
+      console.log('PLAY');
+      let track = NPECheck(this.props, `loops/${this.props.loopIdx}/tracks/${this.props.trackIdx}`, {});
+      track.sound.play();
+    }
+
     return (
       <div key={idx} 
            className={`Beat ${this.props.currentBeat == idx ? 'Active' : beat ? 'On' : 'Off'}`} 

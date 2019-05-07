@@ -4,23 +4,23 @@ export default function loadDrumKit() {
   const sounds = [
     {
       name: 'Accoustic Snare',
-      uri: 'samples/snare-acoustic01.mp3',
+      uri: 'samples/snare.wav',
     },
     {
       name: 'Hi Hat',
-      uri: 'samples/hihat-dist01.mp3',
+      uri: 'samples/hat.wav',
     },
     {
       name: 'Classic Kick',
-      uri: 'samples/kick-classic.mp3',
+      uri: 'samples/kick.wav',
     },
     {
-      name: 'Accoustic Tom 1',
-      uri: 'samples/tom-acoustic01.mp3',
+      name: 'Hi Hat 2',
+      uri: 'samples/hat2.wav',
     },
     {
       name: 'Accoustic Tom 2',
-      uri: 'samples/tom-acoustic02.mp3'
+      uri: 'samples/tom2.wav'
     }
   ];
 

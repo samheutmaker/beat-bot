@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import NPECheck from './lib/util/NPECheck'
 import ActionBinder from './lib/util/ActionBinder'
-import * as Actions from './actions/ACtions'
+import * as Actions from './actions/Actions'
 
 /* The top-level application component
  * @extends Component

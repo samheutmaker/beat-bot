@@ -6,6 +6,7 @@ export default class Sound {
     this.audio = new Audio(sampleUri);
   }
   play() {
+    this.audio = new Audio(this.sampleUri);
   	this.audio.play();
   }
 }
